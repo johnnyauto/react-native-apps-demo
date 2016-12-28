@@ -32,7 +32,7 @@ export default class DemoApp extends Component {
 
   toggle(){
     this.setState({
-      isOpen: !this.state.isOpen
+        isOpen: !this.state.isOpen
     });
   }
 
