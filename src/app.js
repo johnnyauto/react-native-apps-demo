@@ -20,6 +20,7 @@ import Schedule from './pages/Schedule';
 import ContactDetail from './pages/ContactDetail';
 import Customer from './pages/Customer';
 import Map from './pages/MapView';
+import DBItems from './pages/dbItems'; 
 
 
 export default class DemoApp extends Component {
@@ -57,6 +58,9 @@ export default class DemoApp extends Component {
       case 'Map':
         Actions.map();
         break;
+      case 'Database':
+        Actions.db();
+        break;
       default:
         Actions.home();
         break;
@@ -79,13 +83,14 @@ export default class DemoApp extends Component {
       >
       <Router>
         <Scene key="root">
-          <Scene key="home" component={Home} title="Home" hideBackImage={true} />
+          <Scene key="home" component={Home} title="Home" hideBackImage={true} initial={true}/>
           <Scene key="about" component={About} title="About" hideBackImage={true} />
           <Scene key="schedule" component={Schedule} title="Schedule" hideBackImage={true}/>
           <Scene key="contact" component={Contact} title="Contact" hideBackImage={true}/>
           <Scene key="customer" component={Customer} title="Customer" hideBackImage={true} />
           <Scene key="contactDetail" component={ContactDetail} title="Contact Detail" hideBackImage={true}/>
-          <Scene key="map" component={Map} title="Map View" hideBackImage={true} initial={true}/>
+          <Scene key="map" component={Map} title="Map View" hideBackImage={true} />
+           <Scene key="db" component={DBItems} title="Database View" hideBackImage={true} />
         </Scene>
       </Router>
      
