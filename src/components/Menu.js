@@ -38,6 +38,9 @@ export default class Menu extends Component{
                  <TouchableOpacity  onPress={() => this.props.onItemSelected('Map')}>
                     <Text style={styles.item}>Map View</Text>
                 </TouchableOpacity> 
+                 <TouchableOpacity  onPress={() => this.props.onItemSelected('db')}>
+                    <Text style={styles.item}>Databse</Text>
+                </TouchableOpacity> 
             </ScrollView>
         );
     }

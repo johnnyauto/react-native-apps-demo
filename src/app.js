@@ -58,7 +58,7 @@ export default class DemoApp extends Component {
       case 'Map':
         Actions.map();
         break;
-      case 'Database':
+      case 'db':
         Actions.db();
         break;
       default:
@@ -83,14 +83,14 @@ export default class DemoApp extends Component {
       >
       <Router>
         <Scene key="root">
-          <Scene key="home" component={Home} title="Home" hideBackImage={true} initial={true}/>
+          <Scene key="home" component={Home} title="Home" hideBackImage={true} />
           <Scene key="about" component={About} title="About" hideBackImage={true} />
           <Scene key="schedule" component={Schedule} title="Schedule" hideBackImage={true}/>
           <Scene key="contact" component={Contact} title="Contact" hideBackImage={true}/>
           <Scene key="customer" component={Customer} title="Customer" hideBackImage={true} />
           <Scene key="contactDetail" component={ContactDetail} title="Contact Detail" hideBackImage={true}/>
           <Scene key="map" component={Map} title="Map View" hideBackImage={true} />
-           <Scene key="db" component={DBItems} title="Database View" hideBackImage={true} />
+           <Scene key="db" component={DBItems} title="Database View" hideBackImage={true} initial={true} />
         </Scene>
       </Router>
      

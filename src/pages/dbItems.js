@@ -7,37 +7,35 @@ import {
   View,
   ActivityIndicator
 } from 'react-native';
-import Loading from '../components/Loading';
+const Realm = require('realm');
 
-export default class Home extends Component{
+
+export default class DBItems extends Component{
   constructor(props){
     super(props);
     this.state = {
       animating: true
     }
   }
-
-    closeActivityIndicator(){
-      setTimeout(() => {
-        this.setState({animating: false});
-      }, 3000);
-    }
-
     componentDidMount(){
-      this.closeActivityIndicator();
+      // this.closeActivityIndicator();
     }
 
     render() {
+    let realm = new Realm({
+     schema: [{name: 'Dog', properties: {name: 'string'}}]
+   });
+
+   realm.write(() => {
+     realm.create('Dog', {name: 'Rex'});
+   });
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-            welcome hoang to Home page!
-          </Text>
-          <Text style={styles.instructions}>
-            This is  Homepage.
-          </Text>
-        </View>
-          
+     <View style={styles.container}>
+       <Text style={styles.welcome}>
+         Count of Dogs in Realm: {realm.objects('Dog').length}
+       </Text>
+     </View>
     );
   }
 }
